@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Name - Apple Style Landing Page</title>
+    <title>Apple Design System - Dark Theme</title>
     <style>
-        /* Reset & Base */
         * {
             margin: 0;
             padding: 0;
@@ -14,65 +13,49 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
-            background-color: #ffffff;
-            color: #1d1d1f;
+            background-color: #000000;
+            color: #f5f5f7;
             line-height: 1.5;
         }
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-
-        @media (min-width: 768px) {
-            .container {
-                padding: 0 24px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .container {
-                padding: 0 32px;
-            }
-        }
-
-        /* Navigation */
+        /* Navigation Bar */
         nav {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid #eeeeee;
+            background-color: rgba(29, 29, 31, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
-        nav .container {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding-top: 16px;
-            padding-bottom: 16px;
+            justify-content: space-between;
+            height: 48px;
         }
 
-        .logo {
-            font-size: 22px;
+        .nav-brand {
+            font-size: 20px;
             font-weight: 600;
-            color: #000000;
+            color: #f5f5f7;
             text-decoration: none;
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
-            list-style: none;
+            gap: 32px;
+            align-items: center;
         }
 
         .nav-links a {
-            color: #1d1d1f;
+            color: #f5f5f7;
             text-decoration: none;
-            font-size: 17px;
+            font-size: 12px;
+            font-weight: 400;
             transition: color 0.2s;
         }
 
@@ -80,45 +63,74 @@
             color: #007aff;
         }
 
+        .nav-cta {
+            background-color: #007aff;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .nav-cta:hover {
+            background-color: #0056cc;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
         /* Hero Section */
         .hero {
-            background-color: #f5f5f7;
             padding: 80px 0;
             text-align: center;
+            background: linear-gradient(180deg, #1d1d1f 0%, #000000 100%);
         }
 
         .hero h1 {
             font-size: 56px;
-            font-weight: 600;
-            color: #000000;
-            margin-bottom: 16px;
+            font-weight: 700;
             line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
         }
 
         .hero p {
-            font-size: 28px;
-            color: #666666;
+            font-size: 21px;
+            color: #a1a1a6;
             margin-bottom: 32px;
-            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            min-height: 44px;
-            border-radius: 12px;
-            font-size: 17px;
-            font-weight: 500;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s;
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 48px;
         }
 
         .btn-primary {
             background-color: #007aff;
             color: #ffffff;
+            padding: 16px 32px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
+            min-height: 56px;
+            display: inline-flex;
+            align-items: center;
         }
 
         .btn-primary:hover {
@@ -128,163 +140,783 @@
         .btn-secondary {
             background-color: transparent;
             color: #007aff;
+            padding: 16px 32px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
             border: 1px solid #007aff;
+            transition: all 0.2s;
+            cursor: pointer;
+            min-height: 56px;
+            display: inline-flex;
+            align-items: center;
         }
 
         .btn-secondary:hover {
-            background-color: #007aff;
+            background-color: rgba(0, 122, 255, 0.1);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-image img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Section */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
             color: #ffffff;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .section-header p {
+            font-size: 21px;
+            color: #a1a1a6;
         }
 
         /* Features Section */
-        .features {
-            padding: 80px 0;
-            background-color: #ffffff;
-        }
-
-        .section-title {
-            font-size: 34px;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 48px;
-            color: #000000;
-        }
-
-        .feature-grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
 
-        /* Cards */
-        .card {
-            background: #ffffff;
+        .feature-card {
+            background: #1d1d1f;
             border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.3s;
+            padding: 32px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 122, 255, 0.2);
+            border-color: rgba(0, 122, 255, 0.3);
         }
 
-        .card-icon {
-            width: 56px;
-            height: 56px;
-            background-color: #007aff;
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            font-size: 17px;
+            color: #a1a1a6;
+            line-height: 1.5;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #1d1d1f 0%, #2d2d2f 100%);
+            border-radius: 20px;
+            padding: 64px 48px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #007aff;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            font-size: 17px;
+            color: #a1a1a6;
+        }
+
+        /* Large Product Showcase */
+        .product-showcase {
+            position: relative;
+            padding: 120px 0;
+            text-align: center;
+            background: #1d1d1f;
+            border-radius: 20px;
+            margin-bottom: 48px;
+        }
+
+        .product-showcase h2 {
+            font-size: 64px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .product-showcase p {
+            font-size: 28px;
+            color: #a1a1a6;
+            margin-bottom: 48px;
+        }
+
+        .product-showcase img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 16px;
+        }
+
+        /* Segmented Control */
+        .segmented-control {
+            display: inline-flex;
+            background: #2d2d2f;
+            border-radius: 12px;
+            padding: 4px;
+            gap: 4px;
+        }
+
+        .segmented-control button {
+            padding: 8px 24px;
+            border: none;
+            background: transparent;
+            color: #a1a1a6;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+        }
+
+        .segmented-control button.active {
+            background: #007aff;
+            color: #ffffff;
+        }
+
+        .segmented-control button:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Content Section */
+        .content-section {
+            margin-bottom: 80px;
+        }
+
+        .content-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 64px;
+        }
+
+        .content-block:nth-child(even) {
+            direction: rtl;
+        }
+
+        .content-block:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .content-text h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .content-text p {
+            font-size: 17px;
+            color: #a1a1a6;
+            line-height: 1.6;
+        }
+
+        .content-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-image img {
+            width: 100%;
+            display: block;
+        }
+
+        /* App Icon Grid */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .app-icon {
+            text-align: center;
+        }
+
+        .app-icon-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+            border-radius: 22%;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-icon-label {
+            font-size: 12px;
+            color: #f5f5f7;
+        }
+
+        /* Data Visualization */
+        .data-viz {
+            background: #1d1d1f;
+            border-radius: 20px;
+            padding: 48px;
+        }
+
+        .progress-bar {
+            margin-bottom: 24px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .progress-label span:first-child {
+            color: #f5f5f7;
+            font-weight: 600;
+        }
+
+        .progress-label span:last-child {
+            color: #a1a1a6;
+        }
+
+        .progress-track {
+            height: 8px;
+            background: #2d2d2f;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #007aff 0%, #5856d6 100%);
+            border-radius: 8px;
+            transition: width 0.3s ease;
+        }
+
+        /* Notification Card */
+        .notification-card {
+            background: #1d1d1f;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 500px;
+            margin: 32px auto;
+        }
+
+        .notification-icon {
+            font-size: 32px;
+            width: 48px;
+            height: 48px;
+            background: #007aff;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+        }
+
+        .notification-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+
+        .notification-content p {
+            font-size: 13px;
+            color: #a1a1a6;
+        }
+
+        /* Product Card with Specs */
+        .product-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: #1d1d1f;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            border-color: #007aff;
+            box-shadow: 0 8px 24px rgba(0, 122, 255, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 12px;
             margin-bottom: 16px;
         }
 
-        .card h3 {
+        .product-card h3 {
             font-size: 22px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 12px;
-            color: #1d1d1f;
+            color: #ffffff;
         }
 
-        .card p {
+        .product-specs {
+            list-style: none;
+            margin-bottom: 16px;
+        }
+
+        .product-specs li {
+            font-size: 14px;
+            color: #a1a1a6;
+            margin-bottom: 8px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .product-specs li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #007aff;
+        }
+
+        .product-price {
             font-size: 17px;
-            color: #666666;
+            color: #f5f5f7;
+            margin-bottom: 16px;
+        }
+
+        .product-price span {
+            font-size: 14px;
+            color: #a1a1a6;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: #1d1d1f;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-quote {
+            font-size: 17px;
+            color: #f5f5f7;
+            margin-bottom: 16px;
             line-height: 1.5;
         }
 
-        /* Showcase Section */
-        .showcase {
-            padding: 80px 0;
-            background-color: #000000;
-            color: #ffffff;
-            text-align: center;
-        }
-
-        .showcase h2 {
-            font-size: 34px;
+        .testimonial-author {
+            font-size: 15px;
             font-weight: 600;
-            margin-bottom: 16px;
+            color: #ffffff;
+            margin-bottom: 4px;
         }
 
-        .showcase p {
+        .testimonial-role {
+            font-size: 13px;
+            color: #a1a1a6;
+        }
+
+        /* Pricing Table */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: #1d1d1f;
+            border-radius: 20px;
+            padding: 40px 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+            transform: scale(1.05);
+            border-color: transparent;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 122, 255, 0.3);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background: #4cd964;
+            color: #000000;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-card h3 {
             font-size: 22px;
-            color: #a3aaae;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .pricing-price {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .pricing-price span {
+            font-size: 17px;
+            font-weight: 400;
+            color: #a1a1a6;
+        }
+
+        .pricing-card.featured .pricing-price span {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .pricing-features {
+            list-style: none;
             margin-bottom: 32px;
         }
 
-        .showcase-image {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #1d1d1f;
+        .pricing-features li {
+            font-size: 15px;
+            color: #f5f5f7;
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4cd964;
+            font-weight: 700;
+        }
+
+        .pricing-card.featured .pricing-features li {
+            color: #ffffff;
+        }
+
+        .pricing-cta {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+        }
+
+        .pricing-card:not(.featured) .pricing-cta {
+            background: #007aff;
+            color: #ffffff;
+        }
+
+        .pricing-card:not(.featured) .pricing-cta:hover {
+            background: #0056cc;
+        }
+
+        .pricing-card.featured .pricing-cta {
+            background: #ffffff;
+            color: #007aff;
+        }
+
+        .pricing-card.featured .pricing-cta:hover {
+            background: #f5f5f7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
             border-radius: 20px;
-            padding: 48px;
+            padding: 80px 48px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
             font-size: 48px;
-            color: #666666;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 21px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+        }
+
+        .cta-section .btn-primary {
+            background: #ffffff;
+            color: #007aff;
+        }
+
+        .cta-section .btn-primary:hover {
+            background: #f5f5f7;
         }
 
         /* Footer */
         footer {
-            background-color: #f5f5f7;
-            padding: 48px 0 32px;
+            background: #1d1d1f;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 64px 0 32px;
         }
 
-        .footer-content {
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
-            margin-bottom: 32px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+            margin-bottom: 48px;
         }
 
-        .footer-section h4 {
-            font-size: 17px;
+        .footer-column h4 {
+            font-size: 12px;
             font-weight: 600;
-            margin-bottom: 12px;
-            color: #000000;
+            color: #a1a1a6;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .footer-section ul {
+        .footer-column ul {
             list-style: none;
         }
 
-        .footer-section ul li {
-            margin-bottom: 8px;
+        .footer-column ul li {
+            margin-bottom: 12px;
         }
 
-        .footer-section a {
-            color: #666666;
+        .footer-column ul li a {
+            color: #f5f5f7;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
+            transition: color 0.2s;
         }
 
-        .footer-section a:hover {
+        .footer-column ul li a:hover {
             color: #007aff;
         }
 
         .footer-bottom {
-            text-align: center;
-            padding-top: 24px;
-            border-top: 1px solid #eeeeee;
-            color: #979797;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            font-size: 20px;
+            color: #a1a1a6;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            color: #007aff;
+        }
+
+        .footer-copyright {
             font-size: 12px;
+            color: #a1a1a6;
+        }
+
+        /* Table */
+        .table-container {
+            background: #1d1d1f;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #2d2d2f;
+        }
+
+        th {
+            padding: 16px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 600;
+            color: #a1a1a6;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 16px;
+            font-size: 14px;
+            color: #f5f5f7;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        tr:hover {
+            background: rgba(0, 122, 255, 0.1);
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #f5f5f7;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: #2d2d2f;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #f5f5f7;
+            font-size: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+            transition: all 0.2s;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #007aff;
+            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            border-radius: 12px;
         }
 
         /* Responsive */
-        @media (max-width: 767px) {
+        @media (max-width: 1023px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .features-grid,
+            .testimonials-grid,
+            .pricing-grid,
+            .product-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .content-block {
+                grid-template-columns: 1fr;
+            }
+
+            .app-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
             .hero h1 {
                 font-size: 40px;
             }
+        }
 
-            .hero p {
-                font-size: 22px;
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .nav-container {
+                padding: 0 16px;
             }
 
             .nav-links {
@@ -292,7 +924,48 @@
             }
 
             .nav-links a {
-                font-size: 15px;
+                display: none;
+            }
+
+            .nav-links a:last-child {
+                display: block;
+            }
+
+            .features-grid,
+            .testimonials-grid,
+            .pricing-grid,
+            .stats-grid,
+            .footer-grid,
+            .product-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .product-showcase h2 {
+                font-size: 40px;
+            }
+
+            .product-showcase p {
+                font-size: 21px;
+            }
+
+            .app-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -300,60 +973,470 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="container">
-            <a href="#" class="logo">Product</a>
-            <ul class="nav-links">
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+        <div class="nav-container">
+            <a href="#" class="nav-brand">Apple</a>
+            <div class="nav-links">
+                <a href="#">Products</a>
+                <a href="#">Solutions</a>
+                <a href="#">Developers</a>
+                <a href="#">Support</a>
+                <a href="#" class="nav-cta">Get Started</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Amazing Product.</h1>
-            <p>Experience design excellence.</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">Get Started</a>
-                <a href="#" class="btn btn-secondary">Learn More</a>
+            <h1>Design that inspires.</h1>
+            <p>Experience the perfect blend of innovation and simplicity. Our platform delivers powerful tools with an interface that feels natural and intuitive, helping you create extraordinary experiences effortlessly.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Start Free Trial</a>
+                <a href="#" class="btn-secondary">Watch Demo</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://picsum.photos/1200/600?random=1" alt="Hero">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section>
+        <div class="container">
+            <div class="stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>10K+</h3>
+                        <p>Active Users</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99.9%</h3>
+                        <p>Uptime</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Countries</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Support</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section>
         <div class="container">
-            <h2 class="section-title">Why choose us</h2>
-            <div class="feature-grid">
-                <div class="card">
-                    <div class="card-icon">⚡</div>
+            <div class="section-header">
+                <h2>Powerful features</h2>
+                <p>Everything you need to build amazing products</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
                     <h3>Lightning Fast</h3>
-                    <p>Optimized performance that delivers results in milliseconds, not seconds.</p>
+                    <p>Experience blazing fast performance with optimized code and efficient algorithms that keep your workflow smooth and responsive.</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">🔒</div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
                     <h3>Secure by Default</h3>
-                    <p>Enterprise-grade security built into every layer of our platform.</p>
+                    <p>Built with security at its core, featuring end-to-end encryption and advanced protection mechanisms to keep your data safe.</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">🎨</div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎨</span>
                     <h3>Beautiful Design</h3>
-                    <p>Carefully crafted interfaces that users love to interact with.</p>
+                    <p>Crafted with attention to detail, every pixel serves a purpose. Clean interfaces that look stunning on any device.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📱</span>
+                    <h3>Cross Platform</h3>
+                    <p>Seamlessly works across all your devices. Start on your phone, continue on your tablet, finish on your desktop.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🤝</span>
+                    <h3>Real-time Collaboration</h3>
+                    <p>Work together with your team in real-time. See changes instantly and communicate effortlessly as you build.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3>Advanced Analytics</h3>
+                    <p>Gain deep insights with comprehensive analytics and reporting tools that help you make data-driven decisions.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Showcase Section -->
-    <section class="showcase">
+    <!-- Large Product Showcase -->
+    <section>
         <div class="container">
-            <h2>Built for professionals.</h2>
-            <p>Designed for everyone.</p>
-            <div class="showcase-image">
-                Product Preview
+            <div class="product-showcase">
+                <h2>Pro Display XDR</h2>
+                <p>The best pro display ever made.</p>
+                <img src="https://picsum.photos/900/600?random=2" alt="Product Showcase">
+            </div>
+        </div>
+    </section>
+
+    <!-- Segmented Control Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Flexible Pricing</h2>
+                <div class="segmented-control">
+                    <button class="active">Monthly</button>
+                    <button>Yearly</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section with Images -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Designed for professionals</h3>
+                    <p>Our platform is built from the ground up to meet the demanding needs of modern professionals. With powerful features and an intuitive interface, you can focus on what matters most—creating exceptional work. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://picsum.photos/600/400?random=3" alt="Content">
+                </div>
+            </div>
+
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Collaborate effortlessly</h3>
+                    <p>Bring your team together with tools designed for seamless collaboration. Share ideas, provide feedback, and move projects forward—all in one place. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://picsum.photos/600/400?random=4" alt="Content">
+                </div>
+            </div>
+
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Scale with confidence</h3>
+                    <p>Whether you're a solo creator or part of a large enterprise, our infrastructure scales to meet your needs. Reliable, fast, and always available when you need it most. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://picsum.photos/600/400?random=5" alt="Content">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Icon Grid -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>All your apps in one place</h2>
+            </div>
+            <div class="app-grid">
+                <div class="app-icon">
+                    <div class="app-icon-image">📸</div>
+                    <div class="app-icon-label">Photos</div>
+                </div>
+                <div class="app-icon">
+                    <div class="app-icon-image">🎵</div>
+                    <div class="app-icon-label">Music</div>
+                </div>
+                <div class="app-icon">
+                    <div class="app-icon-image">📧</div>
+                    <div class="app-icon-label">Mail</div>
+                </div>
+                <div class="app-icon">
+                    <div class="app-icon-image">📅</div>
+                    <div class="app-icon-label">Calendar</div>
+                </div>
+                <div class="app-icon">
+                    <div class="app-icon-image">📝</div>
+                    <div class="app-icon-label">Notes</div>
+                </div>
+                <div class="app-icon">
+                    <div class="app-icon-image">🌐</div>
+                    <div class="app-icon-label">Safari</div>
+                </div>
+                <div class="app-icon">
+                    <div class="app-icon-image">💬</div>
+                    <div class="app-icon-label">Messages</div>
+                </div>
+                <div class="app-icon">
+                    <div class="app-icon-image">⚙️</div>
+                    <div class="app-icon-label">Settings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notification Card -->
+    <section>
+        <div class="container">
+            <div class="notification-card">
+                <div class="notification-icon">🔔</div>
+                <div class="notification-content">
+                    <h4>New update available</h4>
+                    <p>Version 2.0 includes new features and performance improvements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Cards with Specs -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose your model</h2>
+            </div>
+            <div class="product-cards-grid">
+                <div class="product-card">
+                    <img src="https://picsum.photos/400/300?random=6" alt="Product">
+                    <h3>Starter</h3>
+                    <ul class="product-specs">
+                        <li>8GB Memory</li>
+                        <li>256GB Storage</li>
+                        <li>Dual-core processor</li>
+                        <li>10 hour battery</li>
+                    </ul>
+                    <p class="product-price"><span>From</span> $999</p>
+                    <a href="#" class="btn-primary" style="display: block; text-align: center;">Buy Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://picsum.photos/400/300?random=7" alt="Product">
+                    <h3>Professional</h3>
+                    <ul class="product-specs">
+                        <li>16GB Memory</li>
+                        <li>512GB Storage</li>
+                        <li>Quad-core processor</li>
+                        <li>15 hour battery</li>
+                    </ul>
+                    <p class="product-price"><span>From</span> $1,499</p>
+                    <a href="#" class="btn-primary" style="display: block; text-align: center;">Buy Now</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://picsum.photos/400/300?random=8" alt="Product">
+                    <h3>Enterprise</h3>
+                    <ul class="product-specs">
+                        <li>32GB Memory</li>
+                        <li>1TB Storage</li>
+                        <li>Octa-core processor</li>
+                        <li>20 hour battery</li>
+                    </ul>
+                    <p class="product-price"><span>From</span> $2,499</p>
+                    <a href="#" class="btn-primary" style="display: block; text-align: center;">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Visualization Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Platform adoption</h2>
+                <p>Market share across different technologies</p>
+            </div>
+            <div class="data-viz">
+                <div class="progress-bar">
+                    <div class="progress-label">
+                        <span>iOS Development</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 92%;"></div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-label">
+                        <span>Cloud Integration</span>
+                        <span>87%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 87%;"></div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-label">
+                        <span>Security Features</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-label">
+                        <span>AI & Machine Learning</span>
+                        <span>78%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 78%;"></div>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-label">
+                        <span>AR/VR Capabilities</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 65%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Loved by developers</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="Avatar" class="testimonial-avatar">
+                    <p class="testimonial-quote">"The best development platform I've ever used. Clean, fast, and incredibly intuitive. It has completely transformed how our team builds software."</p>
+                    <p class="testimonial-author">Sarah Chen</p>
+                    <p class="testimonial-role">Lead Developer at TechCorp</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/150?img=2" alt="Avatar" class="testimonial-avatar">
+                    <p class="testimonial-quote">"Outstanding design and performance. Everything just works seamlessly, and the attention to detail is remarkable. Our productivity has increased significantly."</p>
+                    <p class="testimonial-author">Marcus Johnson</p>
+                    <p class="testimonial-role">CTO at StartupHub</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://i.pravatar.cc/150?img=3" alt="Avatar" class="testimonial-avatar">
+                    <p class="testimonial-quote">"A game-changer for our workflow. The collaboration features are fantastic, and the reliability is unmatched. Highly recommend to any serious development team."</p>
+                    <p class="testimonial-author">Emily Rodriguez</p>
+                    <p class="testimonial-role">Senior Engineer at CloudScale</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Table -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Plans for everyone</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <p class="pricing-price">$9<span>/month</span></p>
+                    <ul class="pricing-features">
+                        <li>5 Projects</li>
+                        <li>10GB Storage</li>
+                        <li>Basic Analytics</li>
+                        <li>Email Support</li>
+                        <li>Community Access</li>
+                    </ul>
+                    <button class="pricing-cta">Start Free Trial</button>
+                </div>
+                <div class="pricing-card featured">
+                    <span class="pricing-badge">Most Popular</span>
+                    <h3>Pro</h3>
+                    <p class="pricing-price">$29<span>/month</span></p>
+                    <ul class="pricing-features">
+                        <li>Unlimited Projects</li>
+                        <li>100GB Storage</li>
+                        <li>Advanced Analytics</li>
+                        <li>Priority Support</li>
+                        <li>Team Collaboration</li>
+                        <li>API Access</li>
+                    </ul>
+                    <button class="pricing-cta">Start Free Trial</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <p class="pricing-price">$99<span>/month</span></p>
+                    <ul class="pricing-features">
+                        <li>Unlimited Everything</li>
+                        <li>1TB Storage</li>
+                        <li>Custom Analytics</li>
+                        <li>24/7 Phone Support</li>
+                        <li>Advanced Security</li>
+                        <li>Dedicated Manager</li>
+                    </ul>
+                    <button class="pricing-cta">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison Table -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Feature comparison</h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Basic</th>
+                            <th>Pro</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Projects</td>
+                            <td>5</td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Storage</td>
+                            <td>10GB</td>
+                            <td>100GB</td>
+                            <td>1TB</td>
+                        </tr>
+                        <tr>
+                            <td>Team Members</td>
+                            <td>3</td>
+                            <td>10</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>API Access</td>
+                            <td>—</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Integrations</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>Email</td>
+                            <td>Priority</td>
+                            <td>24/7 Phone</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section>
+        <div class="container">
+            <div class="cta-section">
+                <h2>Ready to get started?</h2>
+                <p>Join thousands of developers building amazing products with our platform.</p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" class="btn-primary">Start Free Trial</a>
+                    <div class="form-group" style="margin: 0; max-width: 400px;">
+                        <input type="email" placeholder="Enter your email" style="margin: 0;">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -361,42 +1444,56 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Product</h4>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Products</h4>
                     <ul>
                         <li><a href="#">Features</a></li>
                         <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Releases</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Roadmap</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Company</h4>
+                <div class="footer-column">
+                    <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Tutorials</a></li>
                         <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Community</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Status</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
+                <div class="footer-column">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">License</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Licenses</a></li>
+                        <li><a href="#">Compliance</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                Copyright © 2025 Product Inc. All rights reserved.
+                <p class="footer-copyright">© 2025 Apple Inc. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#">𝕏</a>
+                    <a href="#">in</a>
+                    <a href="#">f</a>
+                    <a href="#">▶</a>
+                </div>
             </div>
         </div>
     </footer>

@@ -3,53 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Name - Material Design</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Google Cloud Platform - Material Design 3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset & Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Material Design 3 CSS Variables */
         :root {
-            /* Material Design 3 - Google Cloud Console Colors */
+            /* Primary (Google Blue) */
             --md-color-primary: #1a73e8;
             --md-color-primary-container: #d3e3fd;
             --md-color-on-primary: #ffffff;
             --md-color-on-primary-container: #001d35;
 
+            /* Secondary */
             --md-color-secondary: #5f6368;
             --md-color-secondary-container: #e8eaed;
             --md-color-on-secondary: #ffffff;
+            --md-color-on-secondary-container: #1a1c1e;
 
+            /* Tertiary */
             --md-color-tertiary: #34a853;
+            --md-color-tertiary-container: #c8e6c9;
             --md-color-on-tertiary: #ffffff;
 
+            /* Surface / Background */
             --md-color-background: #ffffff;
             --md-color-surface: #ffffff;
             --md-color-surface-variant: #f1f3f4;
             --md-color-on-surface: #202124;
             --md-color-on-surface-variant: #5f6368;
 
+            /* Error */
             --md-color-error: #d93025;
             --md-color-on-error: #ffffff;
+            --md-color-error-container: #fce8e6;
 
+            /* Outline */
             --md-color-outline: #dadce0;
             --md-color-outline-variant: #e8eaed;
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Roboto', 'Noto Sans', sans-serif;
-            background-color: var(--md-color-background);
             color: var(--md-color-on-surface);
+            background-color: var(--md-color-background);
             line-height: 1.5;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Google Sans', 'Roboto', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
         }
+
+        /* Typography Scale */
+        .display-large { font-size: 57px; line-height: 64px; font-weight: 400; margin-bottom: 32px; }
+        .display-medium { font-size: 45px; line-height: 52px; font-weight: 400; margin-bottom: 28px; }
+        .display-small { font-size: 36px; line-height: 44px; font-weight: 400; margin-bottom: 24px; }
+        .headline-large { font-size: 32px; line-height: 40px; font-weight: 400; margin-bottom: 20px; }
+        .headline-medium { font-size: 28px; line-height: 36px; font-weight: 400; margin-bottom: 18px; }
+        .headline-small { font-size: 24px; line-height: 32px; font-weight: 400; margin-bottom: 16px; }
+        .title-large { font-size: 22px; line-height: 28px; font-weight: 500; margin-bottom: 16px; }
+        .title-medium { font-size: 16px; line-height: 24px; font-weight: 500; margin-bottom: 12px; }
+        .body-large { font-size: 16px; line-height: 24px; font-weight: 400; margin-bottom: 16px; }
+        .body-medium { font-size: 14px; line-height: 20px; font-weight: 400; margin-bottom: 12px; }
+        .label-large { font-size: 14px; line-height: 20px; font-weight: 500; }
 
         /* Container */
         .container {
@@ -59,96 +83,146 @@
         }
 
         @media (min-width: 768px) {
-            .container {
-                padding: 0 24px;
-            }
+            .container { padding: 0 24px; }
         }
 
         @media (min-width: 1024px) {
-            .container {
-                padding: 0 32px;
-            }
+            .container { padding: 0 32px; }
         }
 
-        /* Navigation */
-        nav {
-            background-color: var(--md-color-surface);
-            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30), 0 1px 3px 1px rgba(0,0,0,0.15);
+        /* Top App Bar */
+        .top-app-bar {
+            background: var(--md-color-surface);
+            border-bottom: 1px solid var(--md-color-outline);
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30), 0 1px 3px 1px rgba(0,0,0,0.15);
         }
 
-        nav .container {
+        .top-app-bar .container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding-top: 16px;
-            padding-bottom: 16px;
+            justify-content: space-between;
+            height: 64px;
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--md-color-primary);
-            text-decoration: none;
-        }
-
-        .nav-links {
+        .top-app-bar-brand {
             display: flex;
-            gap: 24px;
-            list-style: none;
-        }
-
-        .nav-links a {
+            align-items: center;
+            gap: 8px;
+            font-size: 20px;
+            font-weight: 500;
             color: var(--md-color-on-surface);
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            transition: color 0.2s;
         }
 
-        .nav-links a:hover {
+        .top-app-bar-nav {
+            display: none;
+            gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .top-app-bar-nav { display: flex; }
+        }
+
+        .top-app-bar-nav a {
+            padding: 8px 16px;
+            color: var(--md-color-on-surface-variant);
+            text-decoration: none;
+            border-radius: 12px;
+            transition: background-color 0.2s;
+        }
+
+        .top-app-bar-nav a:hover {
+            background-color: var(--md-color-surface-variant);
+        }
+
+        /* Tabs */
+        .tabs-container {
+            background: var(--md-color-surface);
+            border-bottom: 1px solid var(--md-color-outline);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 16px 24px;
+            color: var(--md-color-on-surface-variant);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .tab:hover {
+            background-color: var(--md-color-surface-variant);
+        }
+
+        .tab.active {
             color: var(--md-color-primary);
+            border-bottom-color: var(--md-color-primary);
         }
 
         /* Hero Section */
         .hero {
-            background-color: var(--md-color-surface-variant);
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
             padding: 80px 0;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 57px;
+            font-size: 48px;
+            line-height: 56px;
             font-weight: 400;
+            margin-bottom: 24px;
             color: var(--md-color-on-surface);
-            margin-bottom: 16px;
-            line-height: 64px;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 57px;
+                line-height: 64px;
+            }
         }
 
         .hero p {
-            font-size: 24px;
+            font-size: 18px;
+            line-height: 28px;
             color: var(--md-color-on-surface-variant);
             margin-bottom: 32px;
-            font-weight: 400;
-            line-height: 32px;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         /* Buttons */
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 12px 24px;
-            min-height: 40px;
             border-radius: 12px;
             font-size: 14px;
             font-weight: 500;
             text-decoration: none;
-            cursor: pointer;
             border: none;
+            cursor: pointer;
             transition: all 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            min-height: 40px;
+            font-family: 'Roboto', sans-serif;
         }
 
         .btn-primary {
@@ -167,50 +241,68 @@
         }
 
         .btn-secondary {
+            background-color: var(--md-color-secondary-container);
+            color: var(--md-color-on-secondary-container);
+        }
+
+        .btn-secondary:hover {
+            background-color: #d0d3d6;
+        }
+
+        .btn-outlined {
             background-color: transparent;
             color: var(--md-color-primary);
             border: 1px solid var(--md-color-outline);
         }
 
-        .btn-secondary:hover {
+        .btn-outlined:hover {
             background-color: var(--md-color-primary-container);
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .btn-text {
+            background-color: transparent;
+            color: var(--md-color-primary);
+            padding: 8px 12px;
         }
 
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background-color: var(--md-color-background);
+        .btn-text:hover {
+            background-color: var(--md-color-primary-container);
         }
 
-        .section-title {
+        /* Section */
+        section {
+            padding: 64px 0;
+        }
+
+        section h2 {
             font-size: 36px;
-            font-weight: 400;
-            text-align: center;
-            margin-bottom: 48px;
-            color: var(--md-color-on-surface);
             line-height: 44px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            text-align: center;
         }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+        section > .body-large {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 48px auto;
+            color: var(--md-color-on-surface-variant);
         }
 
         /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
         .card {
             background: var(--md-color-surface);
             border-radius: 16px;
-            padding: 24px;
             box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30), 0 1px 3px 1px rgba(0,0,0,0.15);
-            transition: box-shadow 0.3s;
+            padding: 24px;
+            transition: all 0.3s;
         }
 
         .card:hover {
@@ -218,71 +310,249 @@
         }
 
         .card-icon {
-            width: 56px;
-            height: 56px;
-            background-color: var(--md-color-primary);
-            border-radius: 16px;
+            width: 48px;
+            height: 48px;
+            background: var(--md-color-primary-container);
+            color: var(--md-color-primary);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 24px;
             margin-bottom: 16px;
         }
 
         .card h3 {
-            font-size: 22px;
-            font-weight: 400;
-            margin-bottom: 12px;
-            color: var(--md-color-on-surface);
-            line-height: 28px;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
         }
 
         .card p {
-            font-size: 16px;
             color: var(--md-color-on-surface-variant);
-            line-height: 24px;
-        }
-
-        /* Showcase Section */
-        .showcase {
-            padding: 80px 0;
-            background-color: var(--md-color-primary);
-            color: var(--md-color-on-primary);
-            text-align: center;
-        }
-
-        .showcase h2 {
-            font-size: 36px;
-            font-weight: 400;
+            line-height: 1.6;
             margin-bottom: 16px;
-            line-height: 44px;
         }
 
-        .showcase p {
-            font-size: 22px;
-            margin-bottom: 32px;
-            opacity: 0.87;
-            line-height: 28px;
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            padding-top: 16px;
+            border-top: 1px solid var(--md-color-outline);
         }
 
-        .showcase-image {
+        /* Chips */
+        .chips-section {
+            background: var(--md-color-surface-variant);
+        }
+
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 16px;
+            background: var(--md-color-surface);
+            color: var(--md-color-on-surface);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid var(--md-color-outline);
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .chip:hover {
+            background: var(--md-color-primary-container);
+            border-color: var(--md-color-primary);
+        }
+
+        /* List with Dividers */
+        .list-section {
             max-width: 800px;
+            margin: 48px auto;
+        }
+
+        .list {
+            background: var(--md-color-surface);
+            border-radius: 16px;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30), 0 1px 3px 1px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--md-color-outline);
+            transition: background-color 0.2s;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .list-item:hover {
+            background-color: var(--md-color-surface-variant);
+        }
+
+        .list-item-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: 16px;
+            object-fit: cover;
+        }
+
+        .list-item-content {
+            flex: 1;
+        }
+
+        .list-item-title {
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .list-item-subtitle {
+            font-size: 14px;
+            color: var(--md-color-on-surface-variant);
+        }
+
+        .list-item-action {
+            color: var(--md-color-primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 12px;
+            transition: background-color 0.2s;
+        }
+
+        .list-item-action:hover {
+            background-color: var(--md-color-primary-container);
+        }
+
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            background: var(--md-color-surface);
+            border-radius: 16px;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30), 0 1px 3px 1px rgba(0,0,0,0.15);
+            margin: 32px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: var(--md-color-surface-variant);
+        }
+
+        th {
+            text-align: left;
+            padding: 16px 24px;
+            font-weight: 500;
+            color: var(--md-color-on-surface);
+            border-bottom: 1px solid var(--md-color-outline);
+        }
+
+        td {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--md-color-outline);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: var(--md-color-surface-variant);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge-success {
+            background: var(--md-color-tertiary-container);
+            color: var(--md-color-on-tertiary);
+        }
+
+        .badge-warning {
+            background: #fef7e0;
+            color: #7f6003;
+        }
+
+        .badge-info {
+            background: var(--md-color-primary-container);
+            color: var(--md-color-primary);
+        }
+
+        /* Form */
+        .form-section {
+            max-width: 600px;
             margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 28px;
-            padding: 48px;
-            font-size: 45px;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-field {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--md-color-outline);
+            border-radius: 12px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            background: var(--md-color-surface);
+            color: var(--md-color-on-surface);
+            transition: all 0.2s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--md-color-primary);
+            box-shadow: 0 0 0 3px var(--md-color-primary-container);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
         }
 
         /* Footer */
         footer {
-            background-color: var(--md-color-surface-variant);
-            padding: 48px 0 32px;
+            background: var(--md-color-surface-variant);
+            padding: 48px 0;
+            margin-top: 64px;
         }
 
-        .footer-content {
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 32px;
@@ -290,9 +560,9 @@
         }
 
         .footer-section h4 {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 500;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             color: var(--md-color-on-surface);
         }
 
@@ -300,14 +570,15 @@
             list-style: none;
         }
 
-        .footer-section ul li {
-            margin-bottom: 8px;
+        .footer-section li {
+            margin-bottom: 12px;
         }
 
         .footer-section a {
             color: var(--md-color-on-surface-variant);
             text-decoration: none;
             font-size: 14px;
+            transition: color 0.2s;
         }
 
         .footer-section a:hover {
@@ -315,12 +586,126 @@
         }
 
         .footer-bottom {
-            text-align: center;
-            padding-top: 24px;
             border-top: 1px solid var(--md-color-outline);
+            padding-top: 24px;
+            text-align: center;
             color: var(--md-color-on-surface-variant);
-            font-size: 12px;
-            line-height: 16px;
+            font-size: 14px;
+        }
+
+        /* FAB (Floating Action Button) */
+        .fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            background-color: var(--md-color-primary);
+            color: var(--md-color-on-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px 3px rgba(0,0,0,0.15), 0 1px 3px 0 rgba(0,0,0,0.30);
+            cursor: pointer;
+            border: none;
+            font-size: 24px;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .fab:hover {
+            box-shadow: 0 6px 10px 4px rgba(0,0,0,0.15), 0 2px 3px 0 rgba(0,0,0,0.30);
+            background-color: #1557b0;
+        }
+
+        .fab:active {
+            box-shadow: 0 4px 8px 3px rgba(0,0,0,0.15), 0 1px 3px 0 rgba(0,0,0,0.30);
+        }
+
+        /* Snackbar */
+        .snackbar {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #323232;
+            color: #ffffff;
+            padding: 14px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px 3px rgba(0,0,0,0.15), 0 1px 3px 0 rgba(0,0,0,0.30);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 1001;
+            font-size: 14px;
+        }
+
+        .snackbar-action {
+            color: #81c9fd;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        /* Product Showcase */
+        .product-showcase {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .product-showcase img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.12);
+            margin: 32px auto;
+        }
+
+        /* Info Bars */
+        .info-bar {
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+            gap: 16px;
+        }
+
+        .info-bar-icon {
+            font-size: 24px;
+        }
+
+        .info-bar-content {
+            flex: 1;
+        }
+
+        .info-bar-close {
+            color: inherit;
+            text-decoration: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .info-bar-info {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .info-bar-success {
+            background: var(--md-color-tertiary-container);
+            color: #1b5e20;
+        }
+
+        .info-bar-warning {
+            background: #fff8e1;
+            color: #f57f17;
+        }
+
+        .info-bar-error {
+            background: var(--md-color-error-container);
+            color: var(--md-color-error);
         }
 
         /* Responsive */
@@ -331,127 +716,403 @@
             }
 
             .hero p {
-                font-size: 20px;
-                line-height: 28px;
+                font-size: 16px;
             }
 
-            .section-title {
+            section h2 {
                 font-size: 28px;
                 line-height: 36px;
             }
 
-            .nav-links {
-                gap: 16px;
-            }
-
-            .nav-links a {
-                font-size: 14px;
+            .card-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
+    <!-- Top App Bar -->
+    <header class="top-app-bar">
         <div class="container">
-            <a href="#" class="logo">Product</a>
-            <ul class="nav-links">
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+            <a href="#" class="top-app-bar-brand">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#1a73e8"/>
+                    <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#34a853"/>
+                </svg>
+                Google Cloud
+            </a>
+            <nav class="top-app-bar-nav">
+                <a href="#">Products</a>
+                <a href="#">Solutions</a>
+                <a href="#">Pricing</a>
+                <a href="#">Docs</a>
+                <a href="#">Learn</a>
+            </nav>
         </div>
-    </nav>
+    </header>
+
+    <!-- Tabs -->
+    <div class="tabs-container">
+        <div class="container">
+            <nav class="tabs">
+                <a href="#" class="tab active">Overview</a>
+                <a href="#" class="tab">Features</a>
+                <a href="#" class="tab">Pricing</a>
+                <a href="#" class="tab">Resources</a>
+                <a href="#" class="tab">Support</a>
+            </nav>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>The new way to work</h1>
-            <p>Built with Material Design principles</p>
-            <div class="cta-buttons">
+            <h1>Build and scale with Google Cloud</h1>
+            <p class="body-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <div class="hero-buttons">
                 <a href="#" class="btn btn-primary">Get Started</a>
-                <a href="#" class="btn btn-secondary">Learn More</a>
+                <a href="#" class="btn btn-outlined">View Documentation</a>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <!-- Product Showcase -->
+    <section class="product-showcase">
         <div class="container">
-            <h2 class="section-title">Why choose us</h2>
-            <div class="feature-grid">
+            <h2 class="headline-medium">Enterprise-grade infrastructure</h2>
+            <p class="body-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <img src="https://picsum.photos/1000/600?random=1" alt="Cloud Infrastructure">
+        </div>
+    </section>
+
+    <!-- Info Bars -->
+    <div class="container">
+        <div class="info-bar info-bar-info">
+            <span class="info-bar-icon">ℹ️</span>
+            <div class="info-bar-content">
+                <strong>New:</strong> Google Cloud Run now supports 2nd generation execution environment
+            </div>
+            <a href="#" class="info-bar-close">✕</a>
+        </div>
+    </div>
+
+    <!-- Features Section with Material Cards -->
+    <section>
+        <div class="container">
+            <h2>Cloud products built for you</h2>
+            <p class="body-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+
+            <div class="card-grid">
                 <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Fast Performance</h3>
-                    <p>Built for speed with optimized performance that delivers instant results across all devices.</p>
+                    <div class="card-icon">☁️</div>
+                    <h3 class="title-large">Compute Engine</h3>
+                    <p class="body-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.</p>
+                    <div class="card-actions">
+                        <button class="btn-text">SHARE</button>
+                        <button class="btn-text">LEARN MORE</button>
+                    </div>
                 </div>
+
+                <div class="card">
+                    <div class="card-icon">🗄️</div>
+                    <h3 class="title-large">Cloud Storage</h3>
+                    <p class="body-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit.</p>
+                    <div class="card-actions">
+                        <button class="btn-text">SHARE</button>
+                        <button class="btn-text">LEARN MORE</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🔍</div>
+                    <h3 class="title-large">BigQuery</h3>
+                    <p class="body-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident.</p>
+                    <div class="card-actions">
+                        <button class="btn-text">SHARE</button>
+                        <button class="btn-text">LEARN MORE</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <h3 class="title-large">AI Platform</h3>
+                    <p class="body-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sunt in culpa qui officia deserunt mollit anim.</p>
+                    <div class="card-actions">
+                        <button class="btn-text">SHARE</button>
+                        <button class="btn-text">LEARN MORE</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3 class="title-large">Kubernetes Engine</h3>
+                    <p class="body-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.</p>
+                    <div class="card-actions">
+                        <button class="btn-text">SHARE</button>
+                        <button class="btn-text">LEARN MORE</button>
+                    </div>
+                </div>
+
                 <div class="card">
                     <div class="card-icon">🔒</div>
-                    <h3>Secure Platform</h3>
-                    <p>Enterprise-grade security ensures your data is protected with industry-leading encryption.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🎨</div>
-                    <h3>Modern Design</h3>
-                    <p>Beautiful Material Design interface that adapts to your preferences and workflow.</p>
+                    <h3 class="title-large">Cloud Security</h3>
+                    <p class="body-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate.</p>
+                    <div class="card-actions">
+                        <button class="btn-text">SHARE</button>
+                        <button class="btn-text">LEARN MORE</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Showcase Section -->
-    <section class="showcase">
+    <!-- Chips Section -->
+    <section class="chips-section">
         <div class="container">
-            <h2>Designed for the future</h2>
-            <p>Experience the next generation of productivity</p>
-            <div class="showcase-image">
-                Product Preview
+            <h2>Explore by category</h2>
+            <p class="body-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
+            <div class="chips-container">
+                <a href="#" class="chip">Compute</a>
+                <a href="#" class="chip">Storage</a>
+                <a href="#" class="chip">Databases</a>
+                <a href="#" class="chip">Networking</a>
+                <a href="#" class="chip">Analytics</a>
+                <a href="#" class="chip">AI & ML</a>
+                <a href="#" class="chip">Security</a>
+                <a href="#" class="chip">DevOps</a>
+                <a href="#" class="chip">Migration</a>
+                <a href="#" class="chip">IoT</a>
             </div>
         </div>
     </section>
+
+    <!-- Team Section with List -->
+    <section>
+        <div class="container">
+            <h2>Meet our experts</h2>
+            <p class="body-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore.</p>
+
+            <div class="list-section">
+                <div class="list">
+                    <div class="list-item">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Avatar" class="list-item-avatar">
+                        <div class="list-item-content">
+                            <div class="list-item-title">Sarah Johnson</div>
+                            <div class="list-item-subtitle">Cloud Solutions Architect</div>
+                        </div>
+                        <a href="#" class="list-item-action">VIEW</a>
+                    </div>
+                    <div class="list-item">
+                        <img src="https://i.pravatar.cc/150?img=33" alt="Avatar" class="list-item-avatar">
+                        <div class="list-item-content">
+                            <div class="list-item-title">Michael Chen</div>
+                            <div class="list-item-subtitle">DevOps Engineer</div>
+                        </div>
+                        <a href="#" class="list-item-action">VIEW</a>
+                    </div>
+                    <div class="list-item">
+                        <img src="https://i.pravatar.cc/150?img=45" alt="Avatar" class="list-item-avatar">
+                        <div class="list-item-content">
+                            <div class="list-item-title">Emily Rodriguez</div>
+                            <div class="list-item-subtitle">Data Engineer</div>
+                        </div>
+                        <a href="#" class="list-item-action">VIEW</a>
+                    </div>
+                    <div class="list-item">
+                        <img src="https://i.pravatar.cc/150?img=68" alt="Avatar" class="list-item-avatar">
+                        <div class="list-item-content">
+                            <div class="list-item-title">David Kim</div>
+                            <div class="list-item-subtitle">Security Specialist</div>
+                        </div>
+                        <a href="#" class="list-item-action">VIEW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Table -->
+    <section>
+        <div class="container">
+            <h2>Compare plans</h2>
+            <p class="body-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Free Tier</th>
+                            <th>Standard</th>
+                            <th>Premium</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Compute Engine</td>
+                            <td>1 vCPU, 1GB RAM</td>
+                            <td>$0.05/hour</td>
+                            <td>$0.15/hour</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cloud Storage</td>
+                            <td>5GB storage</td>
+                            <td>$0.02/GB</td>
+                            <td>$0.01/GB</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>BigQuery</td>
+                            <td>1TB queries/month</td>
+                            <td>$5/TB</td>
+                            <td>$3/TB</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cloud Functions</td>
+                            <td>2M invocations</td>
+                            <td>$0.40/1M</td>
+                            <td>$0.25/1M</td>
+                            <td><span class="badge badge-info">Beta</span></td>
+                        </tr>
+                        <tr>
+                            <td>App Engine</td>
+                            <td>28 hours/day</td>
+                            <td>$0.05/hour</td>
+                            <td>$0.03/hour</td>
+                            <td><span class="badge badge-warning">Limited</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section>
+        <div class="container">
+            <h2>Get in touch</h2>
+            <p class="body-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+            <div class="form-section">
+                <form>
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="service">Service Interest</label>
+                        <select id="service">
+                            <option>Compute Engine</option>
+                            <option>Cloud Storage</option>
+                            <option>BigQuery</option>
+                            <option>Kubernetes Engine</option>
+                            <option>AI Platform</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Tell us about your project"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Info Bars -->
+    <div class="container">
+        <div class="info-bar info-bar-success">
+            <span class="info-bar-icon">✓</span>
+            <div class="info-bar-content">
+                <strong>Success:</strong> Your deployment has been completed successfully
+            </div>
+            <a href="#" class="info-bar-close">✕</a>
+        </div>
+
+        <div class="info-bar info-bar-warning">
+            <span class="info-bar-icon">⚠️</span>
+            <div class="info-bar-content">
+                <strong>Warning:</strong> Your free tier quota will expire in 7 days
+            </div>
+            <a href="#" class="info-bar-close">✕</a>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-section">
-                    <h4>Product</h4>
+                    <h4>PRODUCTS</h4>
                     <ul>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Releases</a></li>
+                        <li><a href="#">Compute</a></li>
+                        <li><a href="#">Storage</a></li>
+                        <li><a href="#">Databases</a></li>
+                        <li><a href="#">Networking</a></li>
+                        <li><a href="#">Analytics</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-section">
-                    <h4>Company</h4>
+                    <h4>SOLUTIONS</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Infrastructure</a></li>
+                        <li><a href="#">Application Development</a></li>
+                        <li><a href="#">Data Analytics</a></li>
+                        <li><a href="#">AI & ML</a></li>
+                        <li><a href="#">Security</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-section">
-                    <h4>Support</h4>
+                    <h4>RESOURCES</h4>
                     <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Code Samples</a></li>
+                        <li><a href="#">Architecture</a></li>
+                        <li><a href="#">Best Practices</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>SUPPORT</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Community</a></li>
                         <li><a href="#">Status</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">License</a></li>
+                        <li><a href="#">Training</a></li>
+                        <li><a href="#">Certification</a></li>
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                Copyright © 2025 Product Inc. All rights reserved.
+                <p>&copy; 2025 Google Cloud Platform. Material Design 3 Demo. Lorem ipsum dolor sit amet.</p>
             </div>
         </div>
     </footer>
+
+    <!-- FAB (Floating Action Button) -->
+    <button class="fab" aria-label="Add">
+        ➕
+    </button>
+
+    <!-- Snackbar -->
+    <div class="snackbar">
+        <span>Settings saved successfully</span>
+        <a href="#" class="snackbar-action">UNDO</a>
+    </div>
 </body>
 </html>
