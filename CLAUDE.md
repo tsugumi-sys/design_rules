@@ -24,7 +24,7 @@ Create a single HTML file (`index.html`) in the same directory that:
 ### Step 3: Create README.md
 Create a simple `README.md` in the directory with:
 - Title (e.g., "# Apple Design Rules")
-- Demo link: `**[View Demo →](https://tsugumi-sys.github.io/design_rules/[directory-name]/)**`
+- Demo link: `**[View Demo →](https://htmlpreview.github.io/?https://github.com/tsugumi-sys/design_rules/blob/main/[directory-name]/index.html)**`
 
 ### Example Prompt from User:
 ```

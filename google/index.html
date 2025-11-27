@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Name - Material Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Material Design 3 - Google Cloud Console Colors */
+            --md-color-primary: #1a73e8;
+            --md-color-primary-container: #d3e3fd;
+            --md-color-on-primary: #ffffff;
+            --md-color-on-primary-container: #001d35;
+
+            --md-color-secondary: #5f6368;
+            --md-color-secondary-container: #e8eaed;
+            --md-color-on-secondary: #ffffff;
+
+            --md-color-tertiary: #34a853;
+            --md-color-on-tertiary: #ffffff;
+
+            --md-color-background: #ffffff;
+            --md-color-surface: #ffffff;
+            --md-color-surface-variant: #f1f3f4;
+            --md-color-on-surface: #202124;
+            --md-color-on-surface-variant: #5f6368;
+
+            --md-color-error: #d93025;
+            --md-color-on-error: #ffffff;
+
+            --md-color-outline: #dadce0;
+            --md-color-outline-variant: #e8eaed;
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans', sans-serif;
+            background-color: var(--md-color-background);
+            color: var(--md-color-on-surface);
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Google Sans', 'Roboto', sans-serif;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 32px;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--md-color-surface);
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30), 0 1px 3px 1px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--md-color-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--md-color-on-surface);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--md-color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--md-color-surface-variant);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 57px;
+            font-weight: 400;
+            color: var(--md-color-on-surface);
+            margin-bottom: 16px;
+            line-height: 64px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: var(--md-color-on-surface-variant);
+            margin-bottom: 32px;
+            font-weight: 400;
+            line-height: 32px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            min-height: 40px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: var(--md-color-primary);
+            color: var(--md-color-on-primary);
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30), 0 1px 3px 1px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary:hover {
+            background-color: #1557b0;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30), 0 2px 6px 2px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary:active {
+            background-color: #0d47a1;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--md-color-primary);
+            border: 1px solid var(--md-color-outline);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--md-color-primary-container);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--md-color-background);
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 48px;
+            color: var(--md-color-on-surface);
+            line-height: 44px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--md-color-surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30), 0 1px 3px 1px rgba(0,0,0,0.15);
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.30), 0 2px 6px 2px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            background-color: var(--md-color-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--md-color-on-surface);
+            line-height: 28px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: var(--md-color-on-surface-variant);
+            line-height: 24px;
+        }
+
+        /* Showcase Section */
+        .showcase {
+            padding: 80px 0;
+            background-color: var(--md-color-primary);
+            color: var(--md-color-on-primary);
+            text-align: center;
+        }
+
+        .showcase h2 {
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            line-height: 44px;
+        }
+
+        .showcase p {
+            font-size: 22px;
+            margin-bottom: 32px;
+            opacity: 0.87;
+            line-height: 28px;
+        }
+
+        .showcase-image {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 28px;
+            padding: 48px;
+            font-size: 45px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--md-color-surface-variant);
+            padding: 48px 0 32px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--md-color-on-surface);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: var(--md-color-on-surface-variant);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-section a:hover {
+            color: var(--md-color-primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid var(--md-color-outline);
+            color: var(--md-color-on-surface-variant);
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 767px) {
+            .hero h1 {
+                font-size: 36px;
+                line-height: 44px;
+            }
+
+            .hero p {
+                font-size: 20px;
+                line-height: 28px;
+            }
+
+            .section-title {
+                font-size: 28px;
+                line-height: 36px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Product</a>
+            <ul class="nav-links">
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>The new way to work</h1>
+            <p>Built with Material Design principles</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Get Started</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why choose us</h2>
+            <div class="feature-grid">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Fast Performance</h3>
+                    <p>Built for speed with optimized performance that delivers instant results across all devices.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔒</div>
+                    <h3>Secure Platform</h3>
+                    <p>Enterprise-grade security ensures your data is protected with industry-leading encryption.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Modern Design</h3>
+                    <p>Beautiful Material Design interface that adapts to your preferences and workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="showcase">
+        <div class="container">
+            <h2>Designed for the future</h2>
+            <p>Experience the next generation of productivity</p>
+            <div class="showcase-image">
+                Product Preview
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Releases</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">License</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                Copyright © 2025 Product Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
